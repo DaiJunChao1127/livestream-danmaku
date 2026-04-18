@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"github.com/DaiJunChao1127/livestream-danmaku/internal/logger"
+)
 
 func main() {
-	fmt.Println("Hello, world!")
+	logger.InitLogger(logger.EnvProd)
+	logger.Log.Info("hello")
 }

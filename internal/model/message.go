@@ -26,7 +26,7 @@ type DanmakuMessage struct {
 }
 
 func (DanmakuMessage) TableName() string {
-	return "danmaku_message"
+	return "danmaku_messages"
 }
 
 // for TypeStatus

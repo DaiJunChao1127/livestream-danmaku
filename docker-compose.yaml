@@ -1,4 +1,7 @@
 #Yet Another Markup Language lol
+# 部署多个容器 且对容器的顺序有一定要求.
+# 完成一整套服务的部署
+
 version: '3.8'
 
 services: # 服务

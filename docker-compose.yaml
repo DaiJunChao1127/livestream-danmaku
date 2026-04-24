@@ -26,7 +26,14 @@ services: # 服务
     command: --default-authentication-plugin=mysql_native_password
     restart: always
 
-  # 3. Kafka
+  # 3. Zookeeper
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: danmaku_zookeeper
+    ports:
+      - "2181:2181"
+
+  # 4. Kafka
   kafka:
     image: wurstmeister/kafka
     container_name: danmaku_kafka

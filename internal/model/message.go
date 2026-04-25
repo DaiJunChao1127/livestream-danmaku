@@ -11,7 +11,7 @@ const (
 	ActionLike  = 103
 )
 
-type wsPacket struct {
+type WsPacket struct {
 	Type   int             `json:"type"`
 	RoomID string          `json:"room_id,omitempty"`
 	Data   json.RawMessage `json:"data"`

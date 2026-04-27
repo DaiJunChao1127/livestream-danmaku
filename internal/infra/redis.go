@@ -47,6 +47,7 @@ func PublishToRoom(rdb *redis.Client, roomID string, payload []byte) {
 	}
 }
 
+// 在Redis里给某个房间的点赞总数做原子累加
 func IncrRoomLike(rdb *redis.Client, roomID string, count uint64) {
 	ctx, cancel := context.WithTimeout(context.Background(), RedisCancelTimeout) // Context上下文 用于控制超时或者传递一些元数据 也可以监控go-redis性能
 	defer cancel()
@@ -62,6 +63,7 @@ func IncrRoomLike(rdb *redis.Client, roomID string, count uint64) {
 	}
 }
 
+// 把当前server在某个房间里的在线人数上报到Redis 并且记录这个房间有哪些server在上报
 func UpdateServerOnline(rdb *redis.Client, roomID string, serverID string, count int, ttl time.Duration) {
 	ctx := context.Background()
 	countKey := fmt.Sprintf(KeyRoomServerOnline, roomID, serverID) // 某房间某实例在线人数

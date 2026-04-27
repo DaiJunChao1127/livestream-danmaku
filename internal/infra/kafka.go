@@ -43,7 +43,7 @@ const (
 	ProducerChanBufSize = 16384
 )
 
-func InitKafkaProduce(brokers []string) sarama.AsyncProducer {
+func InitKafkaProducer(brokers []string) sarama.AsyncProducer {
 	config := sarama.NewConfig()
 	config.ChannelBufferSize = ProducerChanBufSize //Allow more buffering in memory
 
